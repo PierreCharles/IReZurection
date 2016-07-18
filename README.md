@@ -12,4 +12,4 @@ The game will have a single player and it is compatible with a touch gestures an
 **Launch :**
 -------
 
-php -S localhost:8080 -t IReZurection/
+php -S localhost:8080
