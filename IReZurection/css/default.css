@@ -1,0 +1,17 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+body {}
+
+@font-face {
+    font-family: BadGrung;
+    src: url('../assets/fonts/BAD_GRUNGE.TTF');
+}
+
+#error{
+    display: none;
+    width: auto;
+    margin: auto;
+}
