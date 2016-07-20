@@ -1,18 +1,27 @@
-﻿var Rezurection = Rezurection || {};
+﻿"use strict";
 
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
+var Rezurection = Rezurection || {};
+
+/**
+ * Constructor to CollisionDetector
+ * Arguments : a game, a objectContaienr
+ */
 Rezurection.CollisionDetector = function (game, objectContainer) {
     this.objects = objectContainer;
     this.game = game;
-
     this.onPlayerCollideZombie = new Phaser.Signal();
     this.onPlayerOverlapCoin = new Phaser.Signal();
     this.onBulletCollideWall = new Phaser.Signal();
     this.onBulletCollideZombie = new Phaser.Signal();
     this.onPlayerOverlapBomb = new Phaser.Signal();
     this.onPlayerOverlapDoor = new Phaser.Signal();
-
+    this.onCoinCollideWall = new Phaser.Signal();
     game.physics.startSystem(Phaser.Physics.ARCADE);
-    //game.physics.arcade.skipQuadTree = false;
 };
 
 /**
@@ -57,14 +66,16 @@ Rezurection.CollisionDetector.prototype.playerBombCollisionHandler = function (p
 
 /**
  * Collision player with door
-  * Arguments : PlayerSprite player, DoorSprite
+ * Arguments : PlayerSprite player, DoorSprite
  */
 Rezurection.CollisionDetector.prototype.playerDoorCollisionHandler = function (player, door) {
     this.onPlayerOverlapDoor.dispatch(player, door);
 };
 
+/**
+ * Method to check collision
+ */
 Rezurection.CollisionDetector.prototype.check = function () {
-
     this.game.physics.arcade.overlap(this.objects.getPlayers(), this.objects.getCoins(), this.playerCoinCollisionHandler, null, this);
     this.game.physics.arcade.overlap(this.objects.getPlayers(), this.objects.getBombs(), this.playerBombCollisionHandler, null, this);
     this.game.physics.arcade.collide(this.objects.getBullets(), this.objects.getZombies(), this.bulletZombieCollisionHandler, null, this);

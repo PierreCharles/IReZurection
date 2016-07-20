@@ -1,9 +1,12 @@
 ﻿"use strict";
 
 /**
- * Namespace
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
  */
+
 var Rezurection = Rezurection || {};
+
 
 /**
 * Constructor to Wall -> GenereicSprite
@@ -11,7 +14,9 @@ var Rezurection = Rezurection || {};
 */
 Rezurection.WallSprite = function (game, x, y, width, height) {
 
-    if (Rezurection.DEBUG) {
+    if (Rezurection.DEBUG) {        
+        if (game==null || x==null || y==null || width == null || height == null)
+            throw new TypeError("Argument cannot be null.");
         if (!(game instanceof Phaser.Game))
             throw new TypeError("Argument game has to be an instance of Phaser.game");
 

@@ -1,5 +1,16 @@
-﻿var Rezurection = Rezurection || {};
+﻿"use strict";
 
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
+var Rezurection = Rezurection || {};
+
+/**
+ * Constructor to TouchScreenHandler -> Phaser.InputHandler
+ * Arguments : a game, a parent
+ */
 Rezurection.TouchScreenHandler = function (game, parent) {
     Rezurection.InputHandler.call(this, game, parent);
 
@@ -31,60 +42,71 @@ Rezurection.TouchScreenHandler.prototype.OFFSET = 150;
 Rezurection.TouchScreenHandler.prototype.MIN_SPEED = 100;
 Rezurection.TouchScreenHandler.prototype.MAX_SPEED = 300;
 
+/**
+ * Method to init TouchScreenHandler
+ * Arguments : control, invertstick
+ */
 Rezurection.TouchScreenHandler.prototype.init = function (control, invertStick) {
-    this.setControl(control);
     this.invertStick = !!invertStick;
     this.resize();
 
     this.stick1.start();
 };
 
+/**
+ * Method to get stick right x
+ * Return stick right x
+ */
 Rezurection.TouchScreenHandler.prototype.getStickRightX = function () {
-    return game.scale.width - this.OFFSET;
+    return this.game.scale.width - this.OFFSET;
 };
 
+/**
+ * Method to get stick left x
+ * Return stick left x
+ */
 Rezurection.TouchScreenHandler.prototype.getStickLeftX = function () {
     return this.OFFSET;
 };
 
+/**
+ * Method to get stick y
+ * Return stick y
+ */
 Rezurection.TouchScreenHandler.prototype.getSticksY = function () {
-    return game.scale.height - this.OFFSET;
+    return this.game.scale.height - this.OFFSET;
 };
 
+/**
+ * Method to update
+ */
 Rezurection.TouchScreenHandler.prototype.update = function () {
     
     var force = this.stick1.getForce();
 
-    var fireDirection;
-
     if (force == 0) {
         this.setVelocity({ x: 0, y: 0 });
-        fireDirection = this.getFireDirection(game.input.pointer1);
+        this.setFireDestination(this.retrieveFireDestination(this.game.input.pointer1));
     }  else {
         var orientation = this.stick1.getOrientation();
         var speed = (this.MAX_SPEED - this.MIN_SPEED) * force + this.MIN_SPEED;
         this.setVelocity({ x: orientation.x * speed, y: orientation.y * speed });
-        fireDirection = this.getFireDirection(game.input.pointer2);
+        this.setFireDestination(this.retrieveFireDestination(this.game.input.pointer2));
     };
-
-    if (fireDirection != null)
-        this.fire(fireDirection);
 }
 
-Rezurection.TouchScreenHandler.prototype.getFireDirection = function (pointer) {
-    if (!pointer.isDown)
-        return null;
+/**
+ * Method to retrieve dire destination
+ * Return null or new Phaser.Point
+ */
+Rezurection.TouchScreenHandler.prototype.retrieveFireDestination = function (pointer) {
 
-    var fireOrigin = this.control.getFireOrigin();
-
-    dx = pointer.worldX - fireOrigin.x;
-    dy = pointer.worldY - fireOrigin.y;
-
-    var norm = Math.sqrt(dx * dx + dy * dy);
-
-    return { x: dx / norm, y: dy / norm };
+    return pointer.isDown ? new Phaser.Point(pointer.worldX, pointer.worldY) : null;
 };
 
+/**
+ * Method to resize
+ */
 Rezurection.TouchScreenHandler.prototype.resize = function () {
     if (this.invertStick) {
         this.stick1.setLocation(this.getStickRightX(), this.getSticksY());
@@ -94,8 +116,10 @@ Rezurection.TouchScreenHandler.prototype.resize = function () {
     }
 };
 
+/**
+ * Method to destroy
+ */
 Rezurection.TouchScreenHandler.prototype.destroy = function () {
-    game.scale.onSizeChange.remove(this.resize, this);
-    game.plugins.remove(this.stick1);
+    this.game.scale.onSizeChange.remove(this.resize, this);
+    this.game.plugins.remove(this.stick1);
 };
-

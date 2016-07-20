@@ -1,8 +1,10 @@
 ﻿"use strict";
 
 /**
- * Namespace
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
  */
+
 var Rezurection = Rezurection || {};
 
 /**
@@ -10,6 +12,10 @@ var Rezurection = Rezurection || {};
 * Arguments : Phaser.game game, Pisition x and y, associate controller
 */
 Rezurection.DoorSprite = function (game, caseCoord, controller) {
+    if (Rezurection.DEBUG) {
+        if (game==null || caseCoord==null)
+            throw new TypeError("Argument cannot be null.");
+    }
     Rezurection.GenericSprite.call(this, game, false, caseCoord, 'door', controller);
     this.animations.add('door', [0, 1, 2, 3, 4,5,6,7,8], 25, true);
     this.animations.play('door');

@@ -2,82 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a445ea41-bf1e-47bf-96e9-ce93b4ea5793" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/fonts/BAD_GRUNGE.TTF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/fonts/font.fnt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/fonts/font.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/bonus/bomb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/bonus/coin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/bullets/bullet1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/bullets/bullet2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/bullets/bullet3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/door/door.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/floor/floor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/BadgeLogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/LockScreenLogo.scale-200.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/SplashScreen.scale-200.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/Square150x150Logo.scale-200.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/Square44x44Logo.scale-200.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/Square44x44Logo.targetsize-24_altform-unplated.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/StoreLogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/launch/Wide310x150Logo.scale-200.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/menu/pauseButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/player/dude_sheet.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/progress_bar/progress_bar.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/progress_bar/progress_bar_bdr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/wall/wall.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/images/zombies/zombie4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/sounds/bomb.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/sounds/bomb.ogg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/sounds/coin.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/sounds/coin.ogg" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/css/default.css" afterPath="$PROJECT_DIR$/www/css/default.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/lib/astar.js" afterPath="$PROJECT_DIR$/www/js/lib/astar.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/lib/easystar.js" afterPath="$PROJECT_DIR$/www/js/lib/easystar.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/lib/easystar.min.js" afterPath="$PROJECT_DIR$/www/js/lib/easystar.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/lib/phaser.js" afterPath="$PROJECT_DIR$/www/js/lib/phaser.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/lib/phaser.min.js" afterPath="$PROJECT_DIR$/www/js/lib/phaser.min.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/lib/virtualJoystick.js" afterPath="$PROJECT_DIR$/www/js/lib/virtualJoystick.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/www/js/main.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/collisioncontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/collisioncontroller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/collisiondetector.js" afterPath="$PROJECT_DIR$/www/js/src/control/collisiondetector.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/objectcontainer.js" afterPath="$PROJECT_DIR$/www/js/src/control/objectcontainer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/pathfinder.js" afterPath="$PROJECT_DIR$/www/js/src/control/pathfinder.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/playercontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/playercontroller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/soundplayer.js" afterPath="$PROJECT_DIR$/www/js/src/control/soundplayer.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/stagemanager.js" afterPath="$PROJECT_DIR$/www/js/src/control/stagemanager.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/weapon/bulletweapon.js" afterPath="$PROJECT_DIR$/www/js/src/control/weapon/bulletweapon.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/weapon/gun.js" afterPath="$PROJECT_DIR$/www/js/src/control/weapon/gun.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/weapon/weaponcontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/weapon/weaponcontroller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/world.js" afterPath="$PROJECT_DIR$/www/js/src/control/world.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/zombiecontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/zombiecontroller.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/control/zombiesintelligence.js" afterPath="$PROJECT_DIR$/www/js/src/control/zombiesintelligence.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/debug.js" afterPath="$PROJECT_DIR$/www/js/src/debug.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/input/inputhandler.js" afterPath="$PROJECT_DIR$/www/js/src/input/inputhandler.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/input/keyboardmousehandler.js" afterPath="$PROJECT_DIR$/www/js/src/input/keyboardmousehandler.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/input/touchscreenhandler.js" afterPath="$PROJECT_DIR$/www/js/src/input/touchscreenhandler.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/MazeCell.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeCell.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/MazeCreator.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeCreator.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/MazeDefinition.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeDefinition.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/MazePath.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazePath.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/MazeWall.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeWall.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/case.js" afterPath="$PROJECT_DIR$/www/js/src/model/case.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/graph.js" afterPath="$PROJECT_DIR$/www/js/src/model/graph.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/model/playerdata.js" afterPath="$PROJECT_DIR$/www/js/src/model/playerdata.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/screen/gamescreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/gamescreen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/screen/loadscreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/loadscreen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/screen/mainscreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/mainscreen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/screen/menuscreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/menuscreen.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/bombsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/bombsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/bulletsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/bulletsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/coinsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/coinsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/doorsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/doorsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/genericsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/genericsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/playersprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/playersprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/simplebulletsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/simplebulletsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/wallsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/wallsprite.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/js/src/sprite/zombiesprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/zombiesprite.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/images/bullets/bullet1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/images/bullets/bullet2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/assets/images/bullets/bullet3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/app.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/lib/easystar.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/lib/easystar.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/src/control/stagemanager.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/www/js/src/control/weapon/weaponcontroller.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/images/bonus/bomb.png" afterPath="$PROJECT_DIR$/www/assets/images/bonus/bomb.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/images/menu/pauseButton.png" afterPath="$PROJECT_DIR$/www/assets/images/menu/pauseButton.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/sounds/bomb.mp3" afterPath="$PROJECT_DIR$/www/assets/sounds/bomb.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/sounds/bomb.ogg" afterPath="$PROJECT_DIR$/www/assets/sounds/bomb.ogg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/sounds/coin.mp3" afterPath="$PROJECT_DIR$/www/assets/sounds/coin.mp3" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/assets/sounds/coin.ogg" afterPath="$PROJECT_DIR$/www/assets/sounds/coin.ogg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/css/default.css" afterPath="$PROJECT_DIR$/www/css/default.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/index.html" afterPath="$PROJECT_DIR$/www/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/main.js" afterPath="$PROJECT_DIR$/www/js/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/collisioncontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/collisioncontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/collisiondetector.js" afterPath="$PROJECT_DIR$/www/js/src/control/collisiondetector.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/objectcontainer.js" afterPath="$PROJECT_DIR$/www/js/src/control/objectcontainer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/pathfinder.js" afterPath="$PROJECT_DIR$/www/js/src/control/pathfinder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/playercontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/playercontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/soundplayer.js" afterPath="$PROJECT_DIR$/www/js/src/control/soundplayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/weapon/bulletweapon.js" afterPath="$PROJECT_DIR$/www/js/src/control/weapon/bulletweapon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/weapon/gun.js" afterPath="$PROJECT_DIR$/www/js/src/control/weapon/gun.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/world.js" afterPath="$PROJECT_DIR$/www/js/src/control/world.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/zombiecontroller.js" afterPath="$PROJECT_DIR$/www/js/src/control/zombiecontroller.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/control/zombiesintelligence.js" afterPath="$PROJECT_DIR$/www/js/src/control/zombiesintelligence.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/debug.js" afterPath="$PROJECT_DIR$/www/js/src/debug.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/input/inputhandler.js" afterPath="$PROJECT_DIR$/www/js/src/input/inputhandler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/input/keyboardmousehandler.js" afterPath="$PROJECT_DIR$/www/js/src/input/keyboardmousehandler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/input/touchscreenhandler.js" afterPath="$PROJECT_DIR$/www/js/src/input/touchscreenhandler.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/MazeCell.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeCell.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/MazeCreator.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeCreator.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/MazeDefinition.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeDefinition.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/MazePath.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazePath.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/MazeWall.js" afterPath="$PROJECT_DIR$/www/js/src/model/MazeWall.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/case.js" afterPath="$PROJECT_DIR$/www/js/src/model/case.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/graph.js" afterPath="$PROJECT_DIR$/www/js/src/model/graph.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/model/playerdata.js" afterPath="$PROJECT_DIR$/www/js/src/model/playerdata.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/screen/gamescreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/gamescreen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/screen/loadscreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/loadscreen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/screen/mainscreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/mainscreen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/screen/menuscreen.js" afterPath="$PROJECT_DIR$/www/js/src/screen/menuscreen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/bombsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/bombsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/bulletsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/bulletsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/coinsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/coinsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/doorsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/doorsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/genericsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/genericsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/playersprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/playersprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/simplebulletsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/simplebulletsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/wallsprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/wallsprite.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/js/src/sprite/zombiesprite.js" afterPath="$PROJECT_DIR$/www/js/src/sprite/zombiesprite.js" />
     </list>
     <ignored path="ReZurection.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -102,8 +81,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="288">
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -112,18 +91,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-234">
-              <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/www/js/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="530">
+              <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -142,8 +111,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+            <state relative-caret-position="144">
+              <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -162,8 +131,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+            <state relative-caret-position="450">
+              <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -177,10 +146,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
         <option value="$PROJECT_DIR$/www/js/main.js" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/www/index.html" />
       </list>
     </option>
@@ -347,12 +316,12 @@
       <workItem from="1468872860328" duration="376000" />
       <workItem from="1468873291820" duration="387000" />
       <workItem from="1469041508495" duration="27000" />
-      <workItem from="1469041536554" duration="2026000" />
+      <workItem from="1469041536554" duration="2994000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2816000" />
+    <option name="totallyTimeSpent" value="3784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1920" y="24" width="2560" height="1056" extended-state="6" />
@@ -425,14 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -467,24 +428,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="77" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
+        <state relative-caret-position="144">
+          <caret line="8" column="77" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
-          <caret line="8" column="29" selection-start-line="8" selection-start-column="29" selection-end-line="8" selection-end-column="29" />
+        <state relative-caret-position="530">
+          <caret line="57" column="38" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
           <folding />
         </state>
       </provider>

@@ -6,6 +6,8 @@
     <title>IReZurection</title>
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/default.css" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/web/faviconico" type="image/x-icon">
+    <link rel="icon" href="assets/web/favicon.ico" type="image/x-icon">
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
@@ -17,9 +19,12 @@
     <script src="js/lib/astar.js"></script>
     <script src="js/lib/phaser.js"></script>
     <script src="js/lib/virtualJoystick.js"></script>
+    <script src="js/lib/polyfill/array_find.js"></script>
+    <script src="js/lib/phaser-debug.js"></script>
 
     <!-- Scripts: control -->
     <script src="js/src/control/objectcontainer.js"></script>
+    <script src="js/src/control/objectmanager.js"></script>
     <script src="js/src/control/world.js"></script>
     <script src="js/src/control/collisiondetector.js"></script>
     <script src="js/src/control/collisioncontroller.js"></script>
@@ -28,10 +33,12 @@
     <script src="js/src/control/soundplayer.js"></script>
     <script src="js/src/control/playercontroller.js"></script>
     <script src="js/src/control/zombiecontroller.js"></script>
-    <script src="js/src/control/stagemanager.js"></script>
     <script src="js/src/control/weapon/bulletweapon.js"></script>
     <script src="js/src/control/weapon/gun.js"></script>
-    <script src="js/src/control/weapon/weaponcontroller.js"></script>
+    <script src="js/src/control/weapon/shotgun.js"></script>
+    <script src="js/src/control/weapon/lazergun.js"></script>
+    <script src="js/src/control/mazeresolver.js"></script>
+    <script src="js/src/control/displaygamecontrol.js"></script>
 
     <!-- Scripts: input -->
     <script src="js/src/input/inputhandler.js"></script>
@@ -47,12 +54,14 @@
     <script src="js/src/model/graph.js"></script>
     <script src="js/src/model/case.js"></script>
     <script src="js/src/model/playerdata.js"></script>
+    <script src="js/src/model/weapons.js"></script>
 
     <!-- Scripts: screen -->
     <script src="js/src/screen/gamescreen.js"></script>
     <script src="js/src/screen/loadscreen.js"></script>
     <script src="js/src/screen/mainscreen.js"></script>
     <script src="js/src/screen/menuscreen.js"></script>
+    <script src="js/src/screen/gameoverscreen.js"></script>
 
     <!-- Scripts: sprite -->
     <script src="js/src/sprite/genericsprite.js"></script>

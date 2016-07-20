@@ -1,10 +1,11 @@
 ﻿"use strict";
 
 /**
- * Namespace
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
  */
-var Rezurection = Rezurection || {};
 
+var Rezurection = Rezurection || {};
 
 /**
  * A wall between two cells.
@@ -23,6 +24,11 @@ Rezurection.MazeWall = function (cell1, cell2) {
     Object.defineProperty(this, 'cell2', { value: cell2, writable: false });
 };
 
+/**
+ * properties :
+ * -> cell1 : the first cell of this wall.
+ * -> cell2 : the second cell of this wall.
+ */
 Rezurection.MazeWall.prototype.isVertical = function () {
     return this.cell1.col < this.cell2.col;
 }

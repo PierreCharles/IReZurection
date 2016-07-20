@@ -1,35 +1,47 @@
-﻿ var MainScreen = function () { };
+﻿/**
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
 
+ var MainScreen = function () { };
+
+/**
+* Constructor to MainScreen -> Phaser.State
+* First State launcher in oppen game
+*/
  MainScreen.prototype = {
 
+    /**
+    * Method to initialize main state screen
+    */
     init : function(){
-        game.load.onFileError.add(this.onLoadFailure, this);
+        this.game.load.onFileError.add(this.onLoadFailure, this);
     },
 
+    /**
+    * Method to preload
+    */
     preload: function ()
     {
-        game.load.image('logo', 'assets/images/logo.png');
-        game.load.image('progress', 'assets/images/progress_bar/progress_bar.png');
-        game.load.image('progress_bdr', 'assets/images/progress_bar/progress_bar_bdr.png');
+        this.game.load.image('logo', 'assets/images/logo.png');
+        this.game.load.image('progress', 'assets/images/progress_bar/progress_bar.png');
+        this.game.load.image('progress_bdr', 'assets/images/progress_bar/progress_bar_bdr.png');
     },
 
+    /**
+    * Method to creat a main state screen
+    */
     create: function ()
     {
-        window.addEventListener("resize", function () {
-            var height = window.innerHeight;
-            var width = window.innerWidth;
-            game.width = width;
-            game.height = height;
-            game.world.width = width;
-            if (game.renderType === Phaser.WEBGL) {
-                game.renderer.resize(width, height);
-            }
-        }, false);
+        if (Rezurection.DEBUG)
+            this.game.add.plugin(Phaser.Plugin.Debug);
 
-        game.state.add('load_screen', LoadScreen);
-        game.state.start('load_screen');
+        this.game.state.add('load_screen', LoadScreen);
+        this.game.state.start('load_screen');
     },
 
+    /**
+    * Method called on failure
+    */
     onLoadFailure: function(key, file){
         throw new Error("Error while loading file '" + file.url + "', the game cannot start.\nError message : \""+ file.errorMessage+"\"");
     }

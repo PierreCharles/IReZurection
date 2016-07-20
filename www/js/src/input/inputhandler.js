@@ -1,5 +1,16 @@
-﻿var Rezurection = Rezurection || {};
+﻿"use strict";
 
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
+var Rezurection = Rezurection || {};
+
+/**
+ * Constructor to InputHandler -> Phaser.Plugin
+ * Arguments : a game, a parent
+ */
 Rezurection.InputHandler = function (game, parent) {
 
     Phaser.Plugin.call(this, game, parent);
@@ -13,36 +24,41 @@ Rezurection.InputHandler = function (game, parent) {
     this.hasPostUpdate = false;
     this.visible = false;
 
-    this.onFire = new Phaser.Signal();
-
-    Rezurection.InputHandler.velocityAlreadySetted = false;
+    this.velocity = new Phaser.Point(0, 0);
+    this.fireDestination = null;
 };
 
 Rezurection.InputHandler.prototype = Object.create(Phaser.Plugin.prototype);
 Rezurection.InputHandler.prototype.constructor = Rezurection.InputHandler;
 
-Rezurection.InputHandler.velocity = null;
-
-Rezurection.InputHandler.prototype.setControl = function(control)
-{
-    this.control = control;
-}
-
-Rezurection.InputHandler.prototype.preUpdate = function () {
-
-    Rezurection.InputHandler.velocityAlreadySetted = false;
-};
-
+/**
+ * Method to set velocity
+ * Arguments : a velocity
+ */
 Rezurection.InputHandler.prototype.setVelocity = function (velocity) {
-
-    if (Rezurection.InputHandler.velocityAlreadySetted && velocity.x == 0 && velocity.y == 0)
-        return;
-
-    this.control.setVelocity(velocity);
-
-    Rezurection.InputHandler.velocityAlreadySetted = true;
+    this.velocity = new Phaser.Point(velocity.x, velocity.y);
 };
 
-Rezurection.InputHandler.prototype.fire = function (direction) {
-    this.control.fire(direction);
+/**
+ * Methode to get velocity
+ * return velocity
+ */
+Rezurection.InputHandler.prototype.getVelocity = function () {
+    return this.velocity;
+};
+
+/**
+ * Methode to set direction fire
+ * Arguments : destination to fire
+ */
+Rezurection.InputHandler.prototype.setFireDestination = function (destination) {
+    this.fireDestination = destination;
+};
+
+/**
+ * Methode to get fire destination
+ * return fire destination
+ */
+Rezurection.InputHandler.prototype.getFireDestination = function () {
+    return this.fireDestination;
 };

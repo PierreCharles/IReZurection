@@ -1,8 +1,10 @@
 ﻿"use strict";
 
 /**
- * Namespace
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
  */
+
 var Rezurection = Rezurection || {};
 
 /**
@@ -12,18 +14,16 @@ var Rezurection = Rezurection || {};
 Rezurection.GenericSprite = function (game, dead, caseCoord, assetKey, controller) {
 
     if (Rezurection.DEBUG) {
+        if (game == null || dead == null || caseCoord == null || assetKey == null)
+            throw new TypeError("Argument cannot be null.");
         if (!game instanceof Phaser.Game)
             throw new TypeError("Argument game hase to be an instance of Phaser.Game .");
-
         if (typeof dead != "boolean")
             throw new TypeError("Argument dead has to be a boolean");
-
         if (!(caseCoord instanceof Rezurection.Case))
             throw new TypeError("Argument caseCoord has to be an instance of Rezurection.Case");
-
         if (typeof assetKey != "string")
             throw new TypeError("Argument assetKey has to be a string.");
-
         if (!game.cache.checkImageKey(assetKey)) {
             throw new Error("Image key named '" + assetKey + "' doesn't exists.");
         }
@@ -39,10 +39,13 @@ Rezurection.GenericSprite = function (game, dead, caseCoord, assetKey, controlle
         assetKey
     );
 
-    this.controller = controller;
+    if (controller) {
+        this.controller = controller;
+        if (this.controller.init)
+            this.controller.init.call(this.controller, this);
+    }
     
     this.alive = !dead;
-
     this.anchor.setTo(0.5, 0.5);
     this.autoCull = true;
 
@@ -82,7 +85,7 @@ Rezurection.GenericSprite.prototype.addAnimation = function (name, frames, frame
             if (typeof loop != "boolean")
                 throw new TypeError("Argument loop has to be a boolean");
 
-        var minIndex = Math.min(...frames);
+        var minIndex = Math.min.apply(null, frames);
 
         if (minIndex < 0)
             throw new Error("Frame indexes cannot be negative ! You specified an index of " + minIndex + ", please verify your call to this method.");
@@ -90,7 +93,7 @@ Rezurection.GenericSprite.prototype.addAnimation = function (name, frames, frame
         if (typeof this.key == "string") {
 
             var nbFrames = this.game.cache.getFrameCount(this.key);
-            var maxIndex = Math.max(...frames);
+            var maxIndex = Math.max.apply(null, frames);
 
             if (nbFrames - 1 < maxIndex)
                 throw new Error("This Sprite use the asset '" + this.key + "' which has " + nbFrames + " frames and you specified the index " + maxIndex + ". Please verify your call to this method.");

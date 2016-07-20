@@ -1,5 +1,16 @@
-﻿var Rezurection = Rezurection || {};
+﻿"use strict";
 
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
+var Rezurection = Rezurection || {};
+
+/**
+ * Constructor to ZombieIntelligence
+ * Arguments : a world and a refreshDelay
+ */
 Rezurection.ZombiesIntelligence = function (world, refreshDelay) {
 
     if (Rezurection.DEBUG) {
@@ -10,60 +21,97 @@ Rezurection.ZombiesIntelligence = function (world, refreshDelay) {
             throw new TypeError("Argument refreshDelay has to ba a number.");
     }
 
-    this.zombies = world.objects.getZombies();
-    this.players = world.objects.getPlayers();
+    this.zombiesGroup = world.objects.getZombies();
+    this.nearZombies = null;
+    this.farZombies = null;
+
+    this.player;
+    this.playerCell = null;
+    this.playerCase = null;
+
     this.pathFinder = new Rezurection.PathFinder(world.maze);
 
-    this.world = world;
+    this.mazeResolver = new Rezurection.MazeResolver(world.maze);
+    this.mazeResolver.forbideCell(0, 0);
 
-    this.zombieIndex = 0;
-    this.lastTime = game.time.time;
+    this.world = world;
+    this.zombieIndex = -1;
+    this.lastTime = this.world.game.time.time;
     this.refreshDelay = refreshDelay;
 };
 
-Rezurection.ZombiesIntelligence.prototype.shortestPath = function (zombie) {
-    var result = null,
-        currentPath,
-        resultLength = Number.MAX_SAFE_INTEGER;
-
-    var from = zombie.controller.case;
-
-    for (var i = 0; i < this.players.total; i++) {
-        var to = Rezurection.Case.FromWorldPosition(this.players.getAt(i).position);
-
-        currentPath = this.pathFinder.getPath(from.x, from.y, to.x, to.y);
-
-        if (currentPath.length < resultLength) {
-            result = currentPath;
-            resultLength = result.length;
-        }
-    }
-
-    return result;
+/**
+ * Method to sort zombies
+ * Arguments : a zombie
+ */
+Rezurection.ZombiesIntelligence.prototype.sortZombie = function (zombie) {
+    var zombieCell = zombie.controller.case.toMazePosition();
+    if (zombieCell.x == this.playerCell.x && zombieCell.y == this.playerCell.y)
+        this.nearZombies.push(zombie);
+    else if (this.world.game.math.distanceSq(zombieCell.x, zombieCell.y, this.playerCell.x, this.playerCell.y) < 16)
+        this.farZombies.push({ zombie: zombie, cell: zombieCell });
 };
 
-Rezurection.ZombiesIntelligence.prototype.update = function () {
-
-    var currentTime = game.time.time;
+/**
+ * Method to update zombies far
+ */
+Rezurection.ZombiesIntelligence.prototype.updateFarZombies = function () {
+    var currentTime = this.world.game.time.time;
 
     if (currentTime - this.lastTime > this.refreshDelay) {
         this.lastTime = currentTime;
 
-        var zombie = this.zombies.getAt(this.zombieIndex);
+        if (this.farZombies.length > 0) {
+            this.zombieIndex = (this.zombieIndex + 1) % this.farZombies.length;
 
-        if (this.zombies.countLiving() > 0)
-            while (!zombie.alive)
-                zombie = this.zombies.getAt(++this.zombieIndex % this.zombies.length);
+            var zombieInfos = this.farZombies[this.zombieIndex];
 
-        var path = this.shortestPath(zombie);
+            zombieInfos.zombie.controller.followPath(null);
 
-        if (path.length < 15)
-            zombie.controller.followPath(path);
+            var mazePath = this.mazeResolver.getPath(zombieInfos.cell.x, zombieInfos.cell.y, this.playerCell.x, this.playerCell.y, 4);
 
-        this.zombieIndex = (this.zombieIndex + 1) % this.zombies.length;
+            if (mazePath != null) {
+                var zombieCase = zombieInfos.zombie.controller.case;
+                zombieInfos.zombie.controller.followPath(
+                    this.pathFinder.getPath(
+                        zombieCase.x, zombieCase.y,
+                        this.playerCase.x, this.playerCase.y)
+                    );
+            }
+        }
     }
 };
 
+/**
+ * Method to update near zombies
+ */
+Rezurection.ZombiesIntelligence.prototype.updateNearZombies = function () {
+    for (var i = 0; i < this.nearZombies.length; i++)
+        this.nearZombies[i].controller.attack(this.player);
+};
+
+/**
+ * Method update to zombie
+ */
+Rezurection.ZombiesIntelligence.prototype.update = function () {
+
+    this.farZombies = [];
+    this.nearZombies = [];
+
+    this.player = this.world.objects.getPlayers().getAt(0);
+    this.playerCase = new Rezurection.Case.FromWorldPosition(this.player.position);
+    this.playerCell = this.playerCase.toMazePosition();
+
+    this.zombiesGroup.forEachAlive(this.sortZombie, this);
+
+    this.updateFarZombies();
+    this.updateNearZombies();
+};
+
+/**
+ * Method zombieMoved
+ * Arguments : an oldCase and a newCase to move
+ */
 Rezurection.ZombiesIntelligence.prototype.zombieMoved = function (oldCase, newCase) {
     if (oldCase != null)
         this.pathFinder.setCaseFree(oldCase);

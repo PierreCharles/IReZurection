@@ -1,5 +1,10 @@
 ﻿"use strict";
 
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
 var Rezurection = Rezurection || {};
 
 /**
@@ -7,8 +12,13 @@ var Rezurection = Rezurection || {};
  */
 Rezurection.Graph = function (width, height, options) {
 
-    var matrix = new Array(width);
+    if (Rezurection.DEBUG) {
+        if (width == null || height == null || options == null)
+            throw new Error('Graph arguments cannot be null');
+    }
 
+    var matrix = new Array(width);
+    
     for (var x = 0; x < width; x++) {
         matrix[x] = new Array(height);
         for (var y = 0, col = matrix[x]; y < height; y++)

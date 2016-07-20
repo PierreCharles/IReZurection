@@ -1,24 +1,50 @@
 ﻿"use strict";
 
-var Rezurection = Rezurection || {};
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
 
-Rezurection.ZombieController = function (zombieSprite) {
+var Rezurection = Rezurection || {};
+/**
+ * Constructor to Zombie controller
+ * Arguments : a zombirSprite
+ */
+Rezurection.ZombieController = function (zombieForce, life, world) {
+    this.zombieForce = zombieForce || 1;
+    this.life = life || 1;
+    this.world = world;
     this.k = -1;
 
-    zombieSprite.setController(this);
-    this.case = Rezurection.Case.FromWorldPosition(zombieSprite.position);
     this.moved = new Phaser.Signal();
-
     this.moved.dispatch(null, this.case);
+
+    this.followingPath = false;
+    this.attacking = false;
 };
 
+/**
+ * Method to initialize a zombie controller
+ * Arguments : a sprite
+ */
+Rezurection.ZombieController.prototype.init = function (zombieSprite) {
+    this.case = Rezurection.Case.FromWorldPosition(zombieSprite.position);
+    zombieSprite.health = this.life;
+}
+
+/**
+ * Method to control sprite zombie
+ * Arguments : a sprite
+ */
 Rezurection.ZombieController.prototype.control = function (sprite) {
-    if (sprite.health <= 0) {
-        sprite.kill();
+
+    if (!sprite.alive) {
         this.moved.dispatch(this.case, null);
+        delete sprite.controller;
+        return;
     }
 
-    if (this.k != -1) {
+    if (this.followingPath) {
         var nextPoint = {
             x: Phaser.Math.catmullRomInterpolation(this.path.x, this.k),
             y: Phaser.Math.catmullRomInterpolation(this.path.y, this.k)
@@ -30,11 +56,26 @@ Rezurection.ZombieController.prototype.control = function (sprite) {
         this.k += this.step;
 
         if (this.k > 1) {
-            this.k = -1;
+            this.followingPath = false;
             sprite.body.velocity.x = 0;
             sprite.body.velocity.y = 0;
         }
-    }
+    } else if (this.attacking) {
+        var targetDirection = Phaser.Point.subtract(this.targetSprite.position, sprite.position).normalize();
+
+        if (sprite.game.math.distanceSq(this.targetSprite.position.x, this.targetSprite.position.y, sprite.position.x, sprite.position.y) > 2048) {
+            sprite.body.velocity = targetDirection.multiply(100, 100);
+            sprite.stopAttack();
+           
+        } else {
+            sprite.rotation = sprite.game.math.angleBetween(0, 0, targetDirection.x, targetDirection.y);
+            sprite.attack();
+            this.world.changeFloorTint();
+            Rezurection.SoundPlayer.getInstance(sprite.game).play("attack");
+            this.targetSprite.damage(this.zombieForce);
+        }
+    } else
+        sprite.body.velocity.setTo(0, 0);
 
     var newCase = Rezurection.Case.FromWorldPosition(sprite.position);
 
@@ -44,13 +85,15 @@ Rezurection.ZombieController.prototype.control = function (sprite) {
     }
 };
 
+/**
+ * Method to make a zombie following a path
+ * Arguments : an array containing each point of the path.
+ */
 Rezurection.ZombieController.prototype.followPath = function (path) {
     if (path == null) {
-        this.k = -1;
+        this.followingPath = false;
         return;
     }
-
-    this.k = -1;
 
     if (!(path instanceof Array))
         throw new TypeError('path has to be an array of points.');
@@ -65,5 +108,20 @@ Rezurection.ZombieController.prototype.followPath = function (path) {
 
     this.step = 0.04 / path.length;
     this.k = 0;
-    this.time = game.time.now;
+    this.followingPath = true;
+    this.attacking = false;
 };
+
+/**
+ * Method attack to zombie
+ * Arguments : a target sprite
+ */
+Rezurection.ZombieController.prototype.attack = function (targetSprite) {
+    if (Rezurection.DEBUG) {
+        if (!(targetSprite instanceof Phaser.Sprite))
+            throw new Error("Argument point has to be an instance of Phaser.Sprite.");
+    }
+    this.targetSprite = targetSprite;
+    this.followingPath = false;
+    this.attacking = true;
+}

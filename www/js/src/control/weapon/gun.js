@@ -1,6 +1,20 @@
-﻿var Rezurection = Rezurection || {};
+﻿"use strict";
 
-Rezurection.Gun = function (game, bullets) {
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
+var Rezurection = Rezurection || {};
+
+/**
+ * Constructor to Gun -> BulletWeapon
+ * Arguments : world
+ */
+Rezurection.Gun = function (world) {
+    var bullets = [];
+    for (var i = 0; i < 10; i++) bullets.push(new Rezurection.SimpleBulletSprite(world.game));
+    world.objects.addMultiple(bullets);
     Rezurection.BulletWeapon.call(this, bullets, 2);
 };
 

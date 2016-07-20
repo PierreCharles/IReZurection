@@ -1,5 +1,10 @@
 ﻿"use strict";
 
+/**
+ * Namespace Rezurection
+ * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ */
+
 var Rezurection = Rezurection || {};
 
 /**
@@ -17,15 +22,12 @@ Rezurection.PathFinder = function (maze) {
 
     /**
      * Give a case wich is not a wall;
+     * Return a ret
      */
     this.getAcceptableCase = function () {
         var ret;
-
-        do {
-            ret = { y: ret = Math.floor(Math.random() * this.height()), x: Math.floor(Math.random() * this.width()) };
-        }
+        do { ret = { y: ret = Math.floor(Math.random() * this.height()), x: Math.floor(Math.random() * this.width()) };}
         while (graph.grid[ret.x][ret.y].weight != 1);
-
         return ret;
     }
 
@@ -35,22 +37,15 @@ Rezurection.PathFinder = function (maze) {
      * by adding weight to cases when zombies are on them,
      * so the path finding avoid overloaded cases.
      */
-    this.setCaseOccuped = function (occupedCase) {
-
-        graph.grid[occupedCase.x][occupedCase.y].weight = 0;
-    };
-
-    this.setCaseFree = function (freeCase) {
-
-        graph.grid[freeCase.x][freeCase.y].weight = 1;
-    };
+    this.setCaseOccuped = function (occupedCase) {graph.grid[occupedCase.x][occupedCase.y].weight = 0; };
+    this.setCaseFree = function (freeCase) {graph.grid[freeCase.x][freeCase.y].weight = 1; };
 
     /**
      * Get the path between two given points.
      * return : An array of node (see astar.Node) representing the founded path or null.
      */
     this.getPath = function (fromX, fromY, toX, toY) {
-        return astar.search(graph, graph.grid[fromX][fromY], graph.grid[toX][toY], { heuristic: astar.heuristics.diagonal, closest: false });
+        return astar.search(graph, graph.grid[fromX][fromY], graph.grid[toX][toY], { heuristic: astar.heuristics.diagonal, closest: true });
     }
 
     /**
@@ -72,6 +67,7 @@ Rezurection.PathFinder.CELL_SIZE = 5;
 
 /**
  * Convert a Maze.Definition into a Rezurection.Graph by filling the appropriate cases.
+ * Return a graph
  */
 Rezurection.PathFinder.graphFromMazeDefinition = function (mazeDefinition) {
     var rows = mazeDefinition.height * Rezurection.PathFinder.CELL_SIZE + 2;
