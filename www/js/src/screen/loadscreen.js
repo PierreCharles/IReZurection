@@ -27,7 +27,6 @@ LoadScreen.prototype = {
         this.game.load.image('life', 'images/menu/life_button.png');
         this.game.load.image('soundon', 'images/menu/sound_on.png');
         this.game.load.image('soundoff', 'images/menu/sound_off.png');
-        this.game.load.image('keytouch', 'images/menu/keytouch.png');
         this.game.load.image('fullscreen', 'images/menu/fullScreen_32.png');
         this.game.load.image('windowed', 'images/menu/windowed_32.png');
     },
@@ -82,11 +81,8 @@ LoadScreen.prototype = {
     {
         this.progressBar = this.game.make.sprite(this.game.world.centerX - 900 / 2, this.game.world.centerY + 50, 'progress');
         this.progressBarBdr = this.game.make.sprite(this.game.world.centerX - 900 / 2, this.game.world.centerY + 50, 'progress_bdr');
-        this.logo = this.game.make.sprite(this.game.world.centerX, this.game.world.centerY - 150, 'logo');
-        this.status = this.game.make.text(this.game.world.centerX, this.game.world.centerY + 300, 'Loading...', { fill: 'white' });
-
-        this.logo.anchor.setTo(0.5, 0.5);
-        this.status.anchor.setTo(0.5, 0.5);
+        this.logo = this.game.make.sprite(this.game.world.centerX-100, this.game.world.centerY - 180, 'logo');
+        this.status = this.game.make.text(this.game.world.centerX, this.game.world.centerY+50, 'Loading...', { fill: 'white' });
     },
 
     /**

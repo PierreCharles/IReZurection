@@ -1,8 +1,7 @@
 ﻿"use strict";
-
 /**
  * Namespace Rezurection
- * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ * Auhtor : Devloots
  */
 
 var Rezurection = Rezurection || {};
