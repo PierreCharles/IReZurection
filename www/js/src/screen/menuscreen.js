@@ -19,7 +19,7 @@ MenuScreen.prototype = {
         this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'floor');
         this.background.autoScroll(-20, 0);
 
-        // Temp text to previsualizing the size text
+        // Temp text to get the future text size
         this.text = this.game.make.text(0, 0, "Touch to begin", { font: "50px BadGrung", fill: "#fff", align: "center" });
         this.generatedText = this.game.make.text((this.game.width/2)-(this.text.width/2),(this.game.height/2)-(this.text.height/2),"Touch to begin", { font: "50px BadGrung", fill: "#fff", align: "center" } );
 
@@ -35,14 +35,14 @@ MenuScreen.prototype = {
     resizeGame: function(){
         this.background.width = this.game.width;
         this.background.height = this.game.height;
-        this.generatedText.position = { x: (this.game.width/2)-(this.text.width/2), y: (this.game.height/2)-(this.text.height/2) };
+        this.generatedText.position = { x: (this.game.width/2)-(this.generatedText.width/2), y: (this.game.height/2)-(this.generatedText.height/2) };
     },
 
     /**
     * Method to start the next screen state game
     */
     startGame: function () {
-        this.game.stage.removeChild(this.text);
+        this.game.stage.removeChild(this.generatedText);
         this.game.state.start('game_screen', true, false, 1, new Rezurection.PlayerData("Player", 200));
     }
 };

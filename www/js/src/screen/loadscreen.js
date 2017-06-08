@@ -118,6 +118,8 @@ LoadScreen.prototype = {
         this.game.add.existing(this.status);
         this.game.load.setPreloadSprite(this.progressBar);
 
+        this.loadSpritesSheet()
+        this.loadFonts();
         this.loadSounds();
         this.loadSpritesSheet();
         this.loadImages();
