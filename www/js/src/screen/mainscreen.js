@@ -1,5 +1,5 @@
 ﻿/**
- * Auhtor : CHAMBERLAND Grégoire & CHARLES Pierre
+ * Auhtor : Devloots
  */
 
  var MainScreen = function () { };

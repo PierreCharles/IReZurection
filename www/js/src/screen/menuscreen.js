@@ -14,14 +14,19 @@ MenuScreen.prototype = {
     * Method to creat screen
     */
     create: function () {
+        
         this.game.scale.onSizeChange.add(this.resizeGame, this);
         this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'floor');
         this.background.autoScroll(-20, 0);
+
+        // Temp text to previsualizing the size text
+        this.text = this.game.make.text(0, 0, "Touch to begin", { font: "50px BadGrung", fill: "#fff", align: "center" });
+        this.generatedText = this.game.make.text((this.game.width/2)-(this.text.width/2),(this.game.height/2)-(this.text.height/2),"Touch to begin", { font: "50px BadGrung", fill: "#fff", align: "center" } );
+
         this.background.inputEnabled = true;
         this.background.events.onInputDown.add(this.startGame, this);
-        this.text = this.game.make.text(this.game.width / 2, this.game.height / 4, "Touch or click to begin", { font: "80px BadGrung", fill: "#fff", align: "center" });
-        this.text.anchor.set(0.5);
-        this.game.stage.addChild(this.text);
+
+        this.game.stage.addChild(this.generatedText);
     },
 
     /**
@@ -30,7 +35,7 @@ MenuScreen.prototype = {
     resizeGame: function(){
         this.background.width = this.game.width;
         this.background.height = this.game.height;
-        this.text.position = { x: this.game.width / 2, y: this.game.height / 4 };
+        this.generatedText.position = { x: (this.game.width/2)-(this.text.width/2), y: (this.game.height/2)-(this.text.height/2) };
     },
 
     /**

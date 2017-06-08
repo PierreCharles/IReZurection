@@ -12,6 +12,10 @@ angular.module('App', ['ionic'])
 
         $ionicPlatform.ready(function() {
 
+            if(Rezurection.DEBUG){
+                console.log("window.innerWidth : "+window.innerWidth+" - window.innerHeight : "+window.innerHeight);
+            }
+
             var game = new Phaser.Game(window.innerWidth, window.innerHeight, Phaser.AUTO);
 
             /**
@@ -22,7 +26,7 @@ angular.module('App', ['ionic'])
                 var width = window.innerWidth;
                 game.width = width;
                 game.height = height;
-
+                
                 if (game.renderType === Phaser.WEBGL) {
                     game.renderer.resize(width, height);
                 }
@@ -34,7 +38,6 @@ angular.module('App', ['ionic'])
 
             game.state.add('main_screen', MainScreen);
             game.state.start('main_screen');
-
 
         });
     })
