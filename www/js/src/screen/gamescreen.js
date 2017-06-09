@@ -28,7 +28,10 @@ GameScreen.prototype = {
         this.game.scale.onSizeChange.add(this.resizeGame, this);
         this.inputHandlers = [];
         this.inputHandlers.push(this.game.plugins.add(Rezurection.KeyboardMouseHandler)); 
-        if (this.game.device.touch) this.inputHandlers.push(this.game.plugins.add(Rezurection.TouchScreenHandler));
+        if (this.game.device.touch)
+        {
+            this.inputHandlers.push(this.game.plugins.add(Rezurection.TouchScreenHandler));
+        }
         this.world = new Rezurection.World(this.game, this.level, this.playerData, this.inputHandlers);
         this.displayGameControl = this.game.plugins.add(Rezurection.DisplayGameControl, this.playerData, this.world);
     },
@@ -45,9 +48,9 @@ GameScreen.prototype = {
     */
     paused: function () {
         this.game.paused = true;
-        choiseLabel = this.game.add.text(this.game.width / 2, 3 * this.game.height / 8, 'Click to continue', { font: "80px BadGrung", fill: "white" });
-        coins = this.game.add.text(this.game.width / 2, this.game.height / 2, "Coins : " + this.playerData.wallet, { font: "70px BadGrung", fill: "white", align: "center" });
-        killed = this.game.add.text(this.game.width / 2, 5 * this.game.height / 8, "Zombies killed : " + this.playerData.killedZombies, { font: "70px BadGrung", fill: "white", align: "center" });
+        choiseLabel = this.game.add.text(this.game.width / 2, 3 * this.game.height / 8, 'Touch to continue', { font: "45px BadGrung", fill: "white" });
+        coins = this.game.add.text(this.game.width / 2, this.game.height / 2, "Coins : " + this.playerData.wallet, { font: "45px BadGrung", fill: "yellow", align: "center" });
+        killed = this.game.add.text(this.game.width / 2, 5 * this.game.height / 8, "Zombies killed : " + this.playerData.killedZombies, { font: "45px BadGrung", fill: "dark", align: "center" });
 
         [coins, choiseLabel, killed].forEach(function (element) {
             this.game.stage.addChild(element);
@@ -95,6 +98,6 @@ GameScreen.prototype = {
         this.inputHandlers.forEach(function (handler) { this.game.plugins.remove(handler) }, this);
         this.game.plugins.remove(this.displayGameControl);
         this.game.scale.onSizeChange.remove(this.resizeGame, this);
-    },
+    }
  };
 

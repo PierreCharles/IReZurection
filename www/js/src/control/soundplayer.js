@@ -33,7 +33,7 @@ Rezurection.SoundPlayer.getInstance = function (game) {
     if (this.instance == null)
         this.instance = new Rezurection.SoundPlayer(game);
     return this.instance;
-}
+};
 
 /**
 * methode to play associate song sprite

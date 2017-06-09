@@ -33,12 +33,12 @@ Rezurection.TouchScreenHandler = function (game, parent) {
 Rezurection.TouchScreenHandler.prototype = Object.create(Rezurection.InputHandler.prototype);
 Rezurection.TouchScreenHandler.prototype.constructor = Rezurection.TouchScreenHandler;
 
-Rezurection.TouchScreenHandler.prototype.BASE_SIZE = 80;
-Rezurection.TouchScreenHandler.prototype.STICK_SIZE = 70;
+Rezurection.TouchScreenHandler.prototype.BASE_SIZE = 60;
+Rezurection.TouchScreenHandler.prototype.STICK_SIZE = 50;
 Rezurection.TouchScreenHandler.prototype.LIMIT = 50;
 Rezurection.TouchScreenHandler.prototype.BASE_COLOR = 'rgba(128,128,128,0.5)';
 Rezurection.TouchScreenHandler.prototype.STICK_COLOR = 'rgba(255,255,255,0.5)';
-Rezurection.TouchScreenHandler.prototype.OFFSET = 150;
+Rezurection.TouchScreenHandler.prototype.OFFSET = 80;
 Rezurection.TouchScreenHandler.prototype.MIN_SPEED = 100;
 Rezurection.TouchScreenHandler.prototype.MAX_SPEED = 300;
 
@@ -93,7 +93,7 @@ Rezurection.TouchScreenHandler.prototype.update = function () {
         this.setVelocity({ x: orientation.x * speed, y: orientation.y * speed });
         this.setFireDestination(this.retrieveFireDestination(this.game.input.pointer2));
     };
-}
+};
 
 /**
  * Method to retrieve dire destination

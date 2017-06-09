@@ -16,8 +16,6 @@ Rezurection.InputHandler = function (game, parent) {
     Phaser.Plugin.call(this, game, parent);
 
     this.sprite = null;
-
-    this.hasPreRender = false;
     this.hasRender = false;
     this.hasPostRender = false;
     this.hasPreUpdate = true;

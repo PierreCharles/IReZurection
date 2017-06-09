@@ -9,4 +9,3 @@ var Rezurection = Rezurection || {};
 
 // Constante to debug game
 Rezurection.DEBUG = false;
-

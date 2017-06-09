@@ -112,19 +112,22 @@ LoadScreen.prototype = {
     */
     preload: function ()
     {
+        
+        this.loadFonts();
+
         this.game.add.existing(this.logo);
         this.game.add.existing(this.progressBarBdr);
         this.game.add.existing(this.progressBar);
         this.game.add.existing(this.status);
         this.game.load.setPreloadSprite(this.progressBar);
 
-        this.loadSpritesSheet()
-        this.loadFonts();
+        this.loadSpritesSheet();
         this.loadSounds();
         this.loadSpritesSheet();
         this.loadImages();
         this.loadFonts();
         this.loadStates();
+
     },
 
     /**
