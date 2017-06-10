@@ -13,7 +13,7 @@ var Rezurection = Rezurection || {};
  */
 Rezurection.DisplayGameControl = function (game, parent) {
     Phaser.Plugin.call(this, game, parent);
-}
+};
 
 Rezurection.DisplayGameControl.prototype = Object.create(Phaser.Plugin.prototype);
 Rezurection.DisplayGameControl.prototype.constructor = Rezurection.DisplayGameControl;
