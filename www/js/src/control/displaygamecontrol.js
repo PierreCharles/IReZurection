@@ -48,8 +48,6 @@ Rezurection.DisplayGameControl.prototype.init = function (playerData, world) {
         }
     }
 
-    console.log("width : "+this.game.width + " height : "+this.game.height);
-
     this.max = playerData.startLife;
     this.world = world;
     this.playerData = playerData;
@@ -90,7 +88,7 @@ Rezurection.DisplayGameControl.prototype.init = function (playerData, world) {
             this.exists = false;
         }
     };
-   
+
     for (var i = 0; i < Rezurection.Weapons.length; i++)
     {
         this.buttons.push(this.createButton(this.button_position.x, this.button_position.y + (this.button_size.y + this.margin_button) * i, Rezurection.Weapons[i]));
@@ -100,7 +98,7 @@ Rezurection.DisplayGameControl.prototype.init = function (playerData, world) {
     this.levelText = this.game.add.bitmapText(this.margin_left/2, this.margin_left_top, 'font', this.world.level.toString(), this.textSize);
     this.bitmapData = this.game.make.bitmapData(this.lifeBar_width, this.lifeBar_height);
     this.image = this.game.add.image(this.margin_left, this.lifeBar_height, this.bitmapData);
-    this.score = this.game.add.bitmapText(this.margin_left/2, (this.margin_left_top*2)+this.levelText.height, 'font', this.playerData.wallet, this.textSize);
+    this.score = this.game.add.bitmapText(this.margin_left/2, (this.margin_left_top*2)+this.levelText.height, 'font', this.playerData.wallet.toString(), this.textSize);
 
     this.sound = this.game.add.existing(new Phaser.Button(this.game, this.game.width - (this.margin_right + 50), this.margin_button, this.key, function () { this.soundChange(); }, this));
     this.pause = this.game.add.existing(new Phaser.Button(this.game, this.game.width - this.margin_right,this.margin_button, 'pause', function () { this.game.paused = true; }, this));
@@ -120,7 +118,8 @@ Rezurection.DisplayGameControl.prototype.init = function (playerData, world) {
  */
 Rezurection.DisplayGameControl.prototype.weaponChoosed = function (button, pointer, unused, weapon) {
 
-    if (this.playerData.ownedWeapons.indexOf(weapon.name) == -1) {
+    if (this.playerData.ownedWeapons.indexOf(weapon.name) == -1)
+    {
         if (this.playerData.wallet >= weapon.price) {
             this.playerData.subWallet(weapon.price);
             this.playerData.ownedWeapons.push(weapon.name);
@@ -128,11 +127,13 @@ Rezurection.DisplayGameControl.prototype.weaponChoosed = function (button, point
             this.displayMessage(weapon.name);
             button.tint = 0xFFFFFF;
         }
-        else {
+        else
+        {
             this.displayMessage(weapon.name+" : "+weapon.price+" coins");
         }
     }
-    else if (this.playerData.ownedWeapons.indexOf(weapon.name) != -1){
+    else if (this.playerData.ownedWeapons.indexOf(weapon.name) != -1)
+    {
         this.playerData.currentWeapon = weapon.name;
         this.displayMessage(weapon.name);
     }
@@ -160,7 +161,6 @@ Rezurection.DisplayGameControl.prototype.resize = function () {
         x: this.game.width - (this.margin_right + 50),
         y: this.margin_button
     };
-
     for (var i = 0; i < this.buttons.length; i++)
     {
         this.buttons[i].position.setTo(this.game.width - this.margin_left_button, this.margin_top_button + (this.button_size.y + this.margin_button) * i);
@@ -174,11 +174,11 @@ Rezurection.DisplayGameControl.prototype.resize = function () {
 Rezurection.DisplayGameControl.prototype.valueChanged = function (life) {
     this.bitmapData.clear();
     this.bitmapData.rect(
-        0, 0,
+        0,
+        0,
         life / this.max * this.lifeBar_width,
         this.lifeBar_height,
-        Phaser.Color.getWebRGB(Phaser.Color.interpolateColor(
-               0xFF0000, 0x00FF00, 100, Math.floor(life / this.max * 100))));
+        Phaser.Color.getWebRGB(Phaser.Color.interpolateColor(0xFF0000, 0x00FF00, 100, Math.floor(life / this.max * 100))));
     this.bitmapData.dirty = true;
 };
 
@@ -191,10 +191,8 @@ Rezurection.DisplayGameControl.prototype.update = function () {
         this.oldHealth = this.sprite.health;
         this.valueChanged(this.sprite.health);
     }
-    this.levelText.updateText();
     this.score.setText(this.playerData.wallet);
 };
-
 
 /**
  * Method to destroy graphics elements
